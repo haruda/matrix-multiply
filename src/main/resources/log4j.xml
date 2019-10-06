@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console_default" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{HH:mm:ss,SSS} [%t] %-5p %C{1} : %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+	        <param name="levelMin" value="INFO" />
+        </filter>
+	</appender>
+	
+	<appender name="console_simple" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+	        <param name="levelMax" value="INFO" />
+        </filter>
+	</appender>
+	
+	<logger name="com.exigen.chartis.deploy.efolder">
+        <level value="INFO" />
+        <appender-ref ref="console_simple" />
+    </logger>
+
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="console_default" />
+	</root>
+    
+</log4j:configuration>
