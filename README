@@ -1,0 +1,18 @@
+This program generates two random square matrices, multiplies them and prints time taken by multiply operation.
+
+Run 'mvn clean install' to compile a project.
+
+Run 'java -jar target/production/matrix-multiply-0.1-SNAPSHOT.jar <matrix_size> <threads_count>' to run an endpoint.
+Second parameter is optional. 10 threads will be used by default.
+
+There is also Unit test src/test/java/com/matrix_multiply/ThreadExecutorTest.java
+
+Examples of execution:
+]$ java -jar target/production/matrix-multiply-0.1-SNAPSHOT.jar 800 2
+01:22:27,955 [main] INFO  Main : Multiplying random square matrices with 800 size
+01:22:31,046 [main] INFO  Main : 2 threads: 3042 ms
+01:22:36,528 [main] INFO  Main : 1 thread: 5479 ms
+$ java -jar target/production/matrix-multiply-0.1-SNAPSHOT.jar 800 20
+01:22:42,088 [main] INFO  Main : Multiplying random square matrices with 800 size
+01:22:43,546 [main] INFO  Main : 20 threads: 1409 ms
+01:22:48,881 [main] INFO  Main : 1 thread: 5335 ms
