@@ -28,7 +28,15 @@ public class ThreadExecutor {
         nextRow = nextColumn = 0;
 
         final int length = matrix1.length;
+        float [][] m2Transp = new float[length][length];
         final float [][] result = new float[length][length];
+
+        // Rows optimisation
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                m2Transp[i][j] = matrix2[j][i];
+            }
+        }
 
         Thread[] threads = new Thread[threadsCount];
         for (int i = 0; i < threadsCount; i++) {
@@ -51,7 +59,7 @@ public class ThreadExecutor {
                     }
 
                     for (int j = 0; j < length; j++) {
-                        result[row][column] += matrix1[row][j] * matrix2[j][column];
+                        result[row][column] += matrix1[row][j] * m2Transp[column][j];
                     }
                 }
             });
